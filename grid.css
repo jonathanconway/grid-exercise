@@ -1,0 +1,174 @@
+/**
+ * Base
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+html,
+body,
+main {
+  display: flex;
+  flex: 1;
+}
+
+html {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+  --grid-size: 3;
+  --scale: 1rem;
+  --border-radius: calc(var(--scale) / 2);
+  --hover-color: #fd5e61;
+  --foreground-color: #fd3636;
+  --background-color: #bc282a;
+  --grid-width: calc(25 * var(--scale));
+}
+
+
+/**
+ * Layout
+ */
+
+main {
+  flex-direction: column;
+}
+
+main > #grid-and-sidebar-container {
+  display: flex;
+  flex: 1;
+}
+
+main > #grid-and-sidebar-container > #grid-container {
+  display: flex;
+  flex: 1;
+  padding-top: calc(var(--scale) / 1.7);
+}
+
+main > #grid-and-sidebar-container > #sidebar {
+  flex: 1;
+  margin-left: calc(var(--scale) * 2);
+}
+
+main > #bottom-bar {
+  width: 100%;
+  margin-top: calc(var(--scale) * 2);
+}
+
+
+/**
+ * Grid
+ */
+
+#grid {
+  --grid-gap: calc(0.125 * var(--scale));
+  --template-cells: repeat(var(--grid-size), 1fr);
+
+  display: grid;
+  grid-template-rows: var(--template-cells);
+  grid-template-columns: var(--template-cells);
+  grid-gap: var(--grid-gap);
+  width: 75vh;
+  height: 75vh;
+  border: solid var(--grid-gap) var(--background-color);
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+}
+
+.row {
+  display: contents;
+}
+
+.square {
+  --font-size-divisor: 20rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  font-size: calc(var(--font-size-divisor) / var(--grid-size));
+  font-weight: bold;
+}
+
+.square.filled {
+  cursor: pointer;
+  background-color: var(--foreground-color);
+  color: white;
+}
+
+.square.filled:hover,
+.square.connected-hover {
+  background-color: var(--hover-color);
+}
+
+.row:first-child .square:first-child {
+  border-top-left-radius: var(--border-radius);
+}
+
+.row:first-child .square:last-child {
+  border-top-right-radius: var(--border-radius);
+}
+
+.row:last-child .square:first-child {
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.row:last-child .square:last-child {
+  border-bottom-right-radius: var(--border-radius);
+}
+
+
+/**
+ * Control Groups
+ */
+
+fieldset {
+  display: inline-block;
+  border-radius: var(--border-radius);
+  border-color: var(--background-color);
+}
+
+fieldset legend {
+  height: var(--scale);
+}
+
+fieldset label {
+  display: inline-block;
+}
+
+
+/**
+ * Color pickers
+ */
+
+#color-pickers {
+  display: inline-grid;
+  grid-template-columns: repeat(2, auto);
+  grid-column-gap: calc(var(--scale));
+  grid-row-gap: calc(var(--scale) / 2);
+}
+
+#color-pickers label {
+  align-items: center;
+  display: inline-flex;
+}
+
+#color-pickers input[type="color"] {
+  border-radius: var(--border-radius);
+  margin-top: calc(var(--scale) / 4);
+}
+
+
+/**
+ * Slider
+ */
+
+input[type="range"] {
+  width: calc(var(--scale) * 16);
+}
+
+
+
+
+

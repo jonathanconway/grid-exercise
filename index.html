@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Grid Exercise</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="stylesheet" href="grid.css">
+</head>
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <main>
+    <div id="grid-and-sidebar-container">
+      <div id="grid-container">
+        <div id="grid"></div>
+      </div>
+
+      <div id="sidebar">
+        <fieldset>
+          <legend>Colors</legend>
+
+          <div id="color-pickers">
+            <label for="hover-color">Hover</label>
+            <input id="hover-color" type="color" />
+
+            <label for="foreground-color">Foreground</label>
+            <input id="foreground-color" type="color" />
+
+            <label for="background-color">Background</label>
+            <input id="background-color" type="color" />
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div id="bottom-bar">
+      <fieldset>
+        <legend>Grid Size</legend>
+        <input id="grid-size" type="range" min="1" max="50" />
+      </fieldset>
+    </div>
+  </main>
+
+  <script src="grid.js"></script>
+  <script type="text/javascript">
+    const model = new GridModel();
+
+    const presenter = new GridPresenter(
+      model,
+      document,
+      document.getElementById('grid'),
+      document.getElementById('grid-size'),
+      document.getElementById('hover-color'),
+      document.getElementById('foreground-color'),
+      document.getElementById('background-color'));
+  </script>
+</body>
+</html>

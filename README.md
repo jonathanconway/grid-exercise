@@ -9,6 +9,8 @@ This application renders a grid of 0s and 1s, and allows you to count the number
 - Use a slider to control the size of (i.e. number of cells in) the grid.
 - Use color pickers to control the colors used to render the grid.
 
+![Screencast of the Grid in action](/docs/demo.gif?raw=true "Screencast of the Grid in action")
+
 ## Running the program
 
 Simply open the index.html file included in the solution.
